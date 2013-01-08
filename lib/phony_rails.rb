@@ -70,7 +70,7 @@ module PhonyRails
           raise ArgumentError, "'#{options[:as]}' is not an attribute on #{self.name}. You might want to use 'phony_normalized_method :#{attributes.first}' (PhonyRails)" if not self.attribute_method?(options[:as])
         end
         attributes.each do |attribute|
-          raise ArgumentError, "No attribute #{attribute} found on #{self.name} (PhonyRails)" if not self.attribute_method?(attribute)
+          # raise ArgumentError, "No attribute #{attribute} found on #{self.name} (PhonyRails)" if not self.attribute_method?(attribute)
           # Add before validation that saves a normalized version of the phone number
           self.before_validation do
             set_phony_normalized_numbers(attributes, options)
